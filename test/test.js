@@ -29,27 +29,27 @@ exampleNames.forEach((exampleName) => {
   // if (exampleName !== 'basic-with-options') return
 
   const examplePath = path.join(examplesRoot, exampleName)
-  const fixturesPath = path.join(examplePath, 'fixtures.js')
-  const fixtures = require(fixturesPath).default
+  const testPath = path.join(examplePath, 'test.js')
+  const tests = require(testPath).default
   const options = { cwd: examplePath, silent: true }
 
   describe(dasherizeToSentence(exampleName), () => {
 
-    fixtures.forEach((fixture) => {
+    tests.forEach((test) => {
 
-      const commands = fixture.commands ? fixture.commands : [fixture.command]
+      const commands = test.commands ? test.commands : [test.command]
 
       commands.forEach((command) => {
 
         // slice the name to clean it up a lil'
-        it(`${fixture.description} (${command.slice(2)})`, () => {
+        it(`${test.description} (${command.slice(2)})`, () => {
 
           const result = exec(command, options)
 
           const output = result.stdout.trim() + result.stderr.trim()
 
-          expect(output).toEqual(fixture.output.trim())
-          expect(fixture.code).toEqual(result.code)
+          expect(output).toEqual(test.output.trim())
+          expect(test.code).toEqual(result.code)
         })
       })
     })
