@@ -6,14 +6,14 @@ const buildCommandLineInterface = require('../../../dist/index').default
 buildCommandLineInterface({
   version: '0.0.1',
   commandHandlers: {
-    command: (options) => {
-      console.log(`Running command with app option: ${options.foo}`)
+    'command-foo': (options) => {
+      console.log(`Running command foo with app option: ${options.foo}`)
     }
   },
   commands: {
-    command: {
-      description: 'A command',
-      handlers: ['command'],
+    'command-foo': {
+      description: 'A foo command',
+      handlers: ['command-foo'],
       options: {
         foo: {
           description: 'Foo option',

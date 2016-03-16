@@ -2,16 +2,16 @@ const fixtures = []
 
 fixtures.push({
   description: 'Running a command',
-  command: './cli.js command1',
+  command: './cli.js command-foo',
   code: 0,
-  output: 'Running command 1'
+  output: 'Running foo command'
 })
 
 fixtures.push({
   description: 'Running another command',
-  command: './cli.js command2',
+  command: './cli.js command-bar',
   code: 0,
-  output: 'Running command 2'
+  output: 'Running bar command'
 })
 
 fixtures.push({
@@ -22,8 +22,8 @@ fixtures.push({
 cli.js <command> [options]
 
 Commands:
-  command1  A command
-  command2  Another command
+  command-foo  A foo command
+  command-bar  A bar command
 
 Options:
   --help, -h     Show help  [boolean]
@@ -39,8 +39,8 @@ fixtures.push({
 cli.js <command> [options]
 
 Commands:
-  command1  A command
-  command2  Another command
+  command-foo  A foo command
+  command-bar  A bar command
 
 Options:
   --help, -h     Show help  [boolean]
