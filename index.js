@@ -5,11 +5,13 @@ import _ from 'underscore'
 
 // Helpers
 
+// Look inside the command specs to see if any commands exist.
 const commandExists = (specCommands, commandName) => {
   return !_.isEmpty(specCommands) &&
     !_.includes(_.keys(specCommands), commandName)
 }
 
+// Look inside the command specs to see if any commands have options
 const hasAnyCommandOptions = (specCommands) => {
   if (!specCommands) {
     return false
