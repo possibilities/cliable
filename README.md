@@ -28,11 +28,11 @@ This is the entire API. Pass your spec to this function and it will wire everyth
 
 * `defaultConfigPath` _type: string, optional_
 
-  A path, relative the the users's home directory, where the user's config file can be found. Config can be YAML, JS, or JSON.
+  A path, relative the the users's home directory, where the user's config file can be found. Config can be JS, YAML, or JSON.
 
 * `configKey` _type: string, optional_
 
-  Allows an end user to override the default config file path. Passed through to [yargs#config](https://github.com/yargs/yargs#config).
+  Allows an end user to override the default config file path. Defaults to 'config'. Passed through to [yargs#config](https://github.com/yargs/yargs#config).
 
 * `enableEnvVars` _type: boolean, optional_
 
@@ -44,7 +44,7 @@ This is the entire API. Pass your spec to this function and it will wire everyth
 
 * `sideEffectProcessors` _type: object, optional_
 
-  An object where the keys are side effect names and values are functions that know how to process the side effect.
+  An object where the keys are side effect names and values are functions that know how to process the side effect. See [SideEffect](#sideeffect).
 
 ### `CommandSpec`
 
@@ -62,8 +62,18 @@ This is the entire API. Pass your spec to this function and it will wire everyth
 
 * `handler` _type: array[function], required_
 
-  A list of functions should be run by the command. The functions are expected to return a list of lightweight side effect objects that are processed by one the `sideEffectProcessors`.
+  A list of functions should be run by the command. The functions are expected to return a list of lightweight side effect objects that are processed by one the `sideEffectProcessors`. See [SideEffect](#sideeffect).
 
 * `dependencyResolvers` _type: object, optional_
 
   An object where the keys are resolve names and values are functions that know how to obtain the required data.
+
+### `SideEffect`
+
+* `type` _type: string, required_
+
+The type of `sideEffectProcessors` that is needed to process process the side effect.
+
+* `payload` _type: object, optional_
+
+Any data needed to describe the side effect.
