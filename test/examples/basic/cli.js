@@ -5,8 +5,7 @@ const buildCommandLineInterface = require('../../../dist/index').default
 
 buildCommandLineInterface({
   version: '0.0.1',
-  commandHandlers: {
-    default: () => console.log('Running default')
-  },
-  appCommands: ['default']
+  command: {
+    handlers: [ () => console.log('Running default') ]
+  }
 })

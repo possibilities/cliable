@@ -35,8 +35,8 @@ export default function buildCommandLineInterface(spec, yargsInstance = yargs) {
   }
 
   // Pass through app options
-  if (spec.appOptions) {
-    yargsInstance.options(spec.appOptions)
+  if (spec.command && spec.command.options) {
+    yargsInstance.options(spec.command.options)
   }
 
   // Calculate usage string based on spec and pass through
@@ -53,8 +53,9 @@ export default function buildCommandLineInterface(spec, yargsInstance = yargs) {
   // Build commands
   _.each(spec.commands, (commandSpec, commandName) => {
     const { description, options } = commandSpec
-    const command = spec.commandHandlers[commandName]
-    yargsInstance.command(commandName, description, options, command)
+    commandSpec.handlers.forEach((handler) => {
+      yargsInstance.command(commandName, description, options, handler)
+    })
   })
 
   // If the command does not exist show help and an error
@@ -67,10 +68,9 @@ export default function buildCommandLineInterface(spec, yargsInstance = yargs) {
   }
 
   // Run any app level commands
-  if (spec.appCommands) {
-    spec.appCommands.forEach((appCommand) => {
-      // TODO handle non-existent app command
-      spec.commandHandlers[appCommand](argv)
+  if (spec.command) {
+    spec.command.handlers.forEach((handler) => {
+      handler(argv)
     })
   }
 }

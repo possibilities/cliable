@@ -18,13 +18,13 @@ This is the entire API. Pass your spec to this function and it will wire everyth
 
 ### `AppSpec`
 
-* `commands` _type: [CommandSpec](#commandspec), optional_
+* `command` _type: [CommandSpec](#commandspec), optional_
 
-  An array of command declarations. Some values are used to wire together the CLI (see below) and the rest are passed through to [`yargs#command`](https://github.com/yargs/yargs#commandcmd-desc-builder-handler). See [CommandSpec](#commandspec) documentation below.
+  A command declaration. Useful for simple, single action, applications. The command is run if all required options are present. The value is a [CommandSpec](#commandspec).
 
-* `appOptions` _type: object, optional_
+* `commands` _type: Array|[CommandSpec](#commandspec), optional_
 
-  An object containing declarations for options that can be used when the app is run without any command specified. The key are strings representing option names and the corresponding values are objects describing the option. Passed through to [`yargs#options`](https://github.com/yargs/yargs#optionskey-opt).
+  An array of command declarations. Useful for more complicated that must be invoked with a command name, e.g. `fire-starter strike`. Each key defines a command by name and the corresponding value is a [CommandSpec](#commandspec).
 
 * `defaultConfigPath` _type: string, optional_
 
@@ -42,25 +42,9 @@ This is the entire API. Pass your spec to this function and it will wire everyth
 
   An app specific environment variable prefix that will be used to match environment variables for inclusion in app state. Uses [yargs#env](https://github.com/yargs/yargs#envprefix).
 
-* `commandHandlers` _type: object, required_
-
-  An object where the keys are command names and values are functions that receive CLI input and the resolved dependencies. It is responsible for returning an array of objects representing any side-effects the command should cause.
-
-* `dependencyResolvers` _type: object, optional_
-
-  An object where the keys are resolve names and values are functions that know how to obtain the required data.
-
 * `sideEffectProcessors` _type: object, optional_
 
   An object where the keys are side effect names and values are functions that know how to process the side effect.
-
-* `appDependencies` _type: array[string], optional_
-
-  A list of names from `dependencyResolvers` that need to be loaded when the CLI is run with or without a command present. This useful for smaller apps where commands are not needed or when there is a dependency that should be resolved for every command.
-
-* `appCommands` _type: array[string], optional_
-
-  If list of names from `commandHandlers` that will be called when the CLI is run with or without a command present. This is useful for smaller apps where commands are not needed or when there is a process that should run before every command.
 
 ### `CommandSpec`
 
@@ -76,10 +60,10 @@ This is the entire API. Pass your spec to this function and it will wire everyth
 
   An object describing the command command's options. Passed through to [`yargs#command`](https://github.com/yargs/yargs#commandcmd-desc-builder-handler).
 
-* `resolvers` _type: array[string], optional_
+* `handler` _type: array[function], required_
 
-  A list of names from `dependencyResolvers` that need to be loaded by the command.
+  A list of functions should be run by the command. The functions are expected to return a list of lightweight side effect objects that are processed by one the `sideEffectProcessors`.
 
-* `handlers` _type: array[string], required_
+* `dependencyResolvers` _type: object, optional_
 
-  A list of names from `commandHandlers` that need to be run by the command.
+  An object where the keys are resolve names and values are functions that know how to obtain the required data.
