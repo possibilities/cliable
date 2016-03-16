@@ -1,4 +1,4 @@
-# CLI helpers
+# Cliable
 
 Opinionated helpers for defining command line interfaces in a declarative way. Everything is optional.
 
