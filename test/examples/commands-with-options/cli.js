@@ -23,6 +23,11 @@ buildCommandLineInterface({
           type: 'string',
         }
       }
+    },
+    'command-bar': {
+      description: 'A bar command',
+      options: {},
+      handlers: [ () => console.log('Running bar command') ]
     }
   }
 })

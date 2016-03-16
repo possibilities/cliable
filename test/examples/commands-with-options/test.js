@@ -32,6 +32,7 @@ cli.js <command> [options]
 
 Commands:
   command-foo  A foo command
+  command-bar  A bar command
 
 Options:
   --help, -h     Show help  [boolean]
