@@ -26,23 +26,23 @@ This is the entire API. Pass your spec to this function and it will wire everyth
 
   An array of command declarations. Useful for more complicated that must be invoked with a command name, e.g. `fire-starter strike`. Each key defines a command by name and the corresponding value is a [CommandSpec](#commandspec).
 
-`defaultConfigPath` _type: string, optional_
+TODO `defaultConfigPath` _type: string, optional_
 
   A path, relative the the users's home directory, where the user's config file can be found. Config can be JS, YAML, or JSON.
 
-`configKey` _type: string, optional_
+TODO `configKey` _type: string, optional_
 
   Allows an end user to override the default config file path. Defaults to 'config'. Passed through to [yargs#config](https://github.com/yargs/yargs#config).
 
-`enableEnvVars` _type: boolean, optional_
+TODO `enableEnvVars` _type: boolean, optional_
 
   A boolean value to enable/disable inclusion of environment variables in app state. Uses [yargs#env](https://github.com/yargs/yargs#envprefix).
 
-`envVarsPrefix` _type: string, optional_
+TODO `envVarsPrefix` _type: string, optional_
 
   An app specific environment variable prefix that will be used to match environment variables for inclusion in app state. Uses [yargs#env](https://github.com/yargs/yargs#envprefix).
 
-`sideEffectProcessors` _type: object, optional_
+TODO `sideEffectProcessors` _type: object, optional_
 
   An object where the keys are side effect names and values are functions that know how to process the side effect named by the key. See [SideEffect](#sideeffect).
 
@@ -64,11 +64,11 @@ This is the entire API. Pass your spec to this function and it will wire everyth
 
   A list of functions should be run by the command. The functions are expected to return a list of lightweight side effect objects that are processed by one the `sideEffectProcessors`. See [SideEffect](#sideeffect).
 
-`dependencyResolvers` _type: object, optional_
+TODO `dependencyResolvers` _type: object, optional_
 
   An object where the keys are resolve names and values are functions that know how to obtain the required data.
 
-### `SideEffect`
+### TODO `SideEffect`
 
 `type` _type: string, required_
 
