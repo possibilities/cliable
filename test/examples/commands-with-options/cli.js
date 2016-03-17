@@ -11,8 +11,8 @@ buildCommandLineInterface({
     'command-foo': {
       description: 'A foo command',
       handlers: [
-        (options) => {
-          console.log(`Running command foo with app option: ${options.foo}`)
+        function(options) {
+          console.log('Running command foo with app option: ' + options.foo)
         }
       ],
       options: {
@@ -27,7 +27,7 @@ buildCommandLineInterface({
     'command-bar': {
       description: 'A bar command',
       options: {},
-      handlers: [ () => console.log('Running bar command') ]
+      handlers: [ function() { console.log('Running bar command') } ]
     }
   }
 })

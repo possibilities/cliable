@@ -2,6 +2,8 @@
 
 Opinionated helpers for defining command line interfaces in a declarative way. Everything is optional.
 
+_NOT USABLE YET_
+
 ## Install
 
 ```
@@ -20,7 +22,7 @@ This is the entire API. Pass your spec to this function and it will wire everyth
 
 `command` _type: [CommandSpec](#commandspec), optional_
 
-  A command declaration. Useful for simple, single action, applications. The command is run if all required options are present. The value is a [CommandSpec](#commandspec).
+  A command declaration. Useful for simple, single action, applications. The command is run if all required options are present. If `commands` is configured `command` is ignored. The value is a [CommandSpec](#commandspec).
 
 `commands` _type: object, optional_
 

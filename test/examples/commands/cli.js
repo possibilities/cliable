@@ -9,12 +9,12 @@ buildCommandLineInterface({
     'command-foo': {
       description: 'A foo command',
       options: {},
-      handlers: [ () => console.log('Running foo command') ]
+      handlers: [ function() { console.log('Running foo command') } ]
     },
     'command-bar': {
       description: 'A bar command',
       options: {},
-      handlers: [ () => console.log('Running bar command') ]
+      handlers: [ function() { console.log('Running bar command') } ]
     }
   }
 })

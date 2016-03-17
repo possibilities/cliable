@@ -7,7 +7,7 @@ buildCommandLineInterface({
   version: '0.0.1',
   command: {
     handlers: [
-      (options) => { console.log(`Running default with option: ${options.foo}`) }
+      function(options) { console.log('Running default with option: ' + options.foo) }
     ],
     options: {
       foo: {
