@@ -44,7 +44,7 @@ This is the entire API. Pass your spec to this function and it will wire everyth
 
 `sideEffectProcessors` _type: object, optional_
 
-  An object where the keys are side effect names and values are functions that know how to process the side effect. See [SideEffect](#sideeffect).
+  An object where the keys are side effect names and values are functions that know how to process the side effect named by the key. See [SideEffect](#sideeffect).
 
 ### `CommandSpec`
 
