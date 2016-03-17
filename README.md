@@ -1,4 +1,4 @@
-# Cliable
+# Cliable [![Build Status](https://travis-ci.org/possibilities/cliable.svg?branch=master)](https://travis-ci.org/possibilities/cliable)
 
 Opinionated helpers for defining command line interfaces in a declarative way. Everything is optional.
 
