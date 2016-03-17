@@ -22,7 +22,7 @@ This is the entire API. Pass your spec to this function and it will wire everyth
 
   A command declaration. Useful for simple, single action, applications. The command is run if all required options are present. The value is a [CommandSpec](#commandspec).
 
-`commands` _type: Array|[CommandSpec](#commandspec), optional_
+`commands` _type: object, optional_
 
   An array of command declarations. Useful for more complicated that must be invoked with a command name, e.g. `fire-starter strike`. Each key defines a command by name and the corresponding value is a [CommandSpec](#commandspec).
 
