@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const yargs = require('yargs')
-const buildCommandLineInterface = require('../../../dist/index').default
+const buildCommandLineInterface = require('../../../index')
 
 buildCommandLineInterface({
   version: '0.0.1',

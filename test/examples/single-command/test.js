@@ -27,4 +27,4 @@ fixtures.push({
   output: '0.0.1'
 })
 
-export default fixtures
+module.exports = fixtures

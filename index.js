@@ -1,7 +1,7 @@
 /* global process, require */
 
-import yargs from 'yargs'
-import _ from 'underscore'
+const yargs = require('yargs')
+const _ = require('underscore')
 
 // Helpers
 
@@ -22,7 +22,8 @@ const hasAnyCommandOptions = (specCommands) => {
 
 // Note: second argument is not part of the API (for now at least). Intended
 // for testing only.
-export default function buildCommandLineInterface(spec, yargsInstance = yargs) {
+const buildCommandLineInterface = (spec, yargsInstance) => {
+  yargsInstance = yargsInstance || yargs
 
   // Configure help
   yargsInstance
@@ -54,15 +55,19 @@ export default function buildCommandLineInterface(spec, yargsInstance = yargs) {
 
   // Build commands
   _.each(spec.commands, (commandSpec, commandName) => {
-    const { description, options } = commandSpec
     commandSpec.handlers.forEach((handler) => {
-      yargsInstance.command(commandName, description, options, handler)
+      yargsInstance.command(
+        commandName,
+        commandSpec.description,
+        commandSpec.options,
+        handler
+      )
     })
   })
 
   // If the command does not exist show help and an error
   const argv = yargsInstance.argv
-  const [ commandName ] = argv._
+  const commandName = argv._[0]
   if (commandExists(spec.commands, commandName)) {
     yargsInstance.showHelp()
     console.error(`Command not found: ${commandName}`)
@@ -76,3 +81,5 @@ export default function buildCommandLineInterface(spec, yargsInstance = yargs) {
     })
   }
 }
+
+module.exports = buildCommandLineInterface

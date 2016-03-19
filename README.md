@@ -26,6 +26,8 @@ And building your application this way you can avoid boilerplate and delegate th
 
 ## Install
 
+_NOTE: requires Node 4.0+_
+
 ```
 npm install --save cliable
 ```
