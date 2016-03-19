@@ -68,7 +68,7 @@ TODO `envVarsPrefix` _type: string, optional_
 
 TODO `sideEffectProcessors` _type: object, optional_
 
-  An object where the keys are side effect names and values are functions that know how to process the side effect named by the key. See [SideEffect](#sideeffect).
+  An object where the keys are side effect names and values are functions that know how to process the side effect named by the key. See [SideEffectSpec](#sideeffectspec).
 
 ### `CommandSpec`
 
@@ -84,7 +84,7 @@ _Passed through to [`yargs#command`](https://github.com/yargs/yargs#commandcmd-d
 
 `handler` _type: array[function], required_
 
-  A list of functions should be run by the command. The functions are expected to return a list of lightweight side effect objects that are processed by one the `sideEffectProcessors`. See [SideEffect](#sideeffect).
+  A list of functions should be run by the command. The functions are expected to return a list of lightweight side effect objects that are processed by one the `sideEffectProcessors`. See [SideEffectSpec](#sideeffectspec).
 
 `arguments` _type: Array[object], optional_
 
@@ -96,7 +96,7 @@ TODO `dependencyResolvers` _type: object, optional_
 
 ### TODO `ArgumentSpec`
 
-### TODO `SideEffect`
+### TODO `SideEffectSpec`
 
 `type` _type: string, required_
 
