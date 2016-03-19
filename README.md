@@ -4,6 +4,26 @@ Opinionated helpers for defining command line interfaces in a declarative way. E
 
 _NOT USABLE YET_
 
+## Summary
+
+There's nothing particularly difficult about writing CLI applications but it can be hard to write them in a modular and testable way. The mental model for Cliable applications is a 3 stage pipeline:
+
+1. **Input** flows in:
+    - CLI flags
+    - environment variables
+    - config file values
+    - fetched data from a remote service
+    - content read in from the filesystem
+
+1. Input is **process**ed by one or more composed pure functions
+
+1. One or more **side effect** happens
+
+    - a file is written or uploaded
+    - a kitten is rescued
+
+And building your application this way you can avoid boilerplate and delegate the heavy lifting to Cliable (which delegates most things to [yargs]()).
+
 ## Install
 
 ```
