@@ -7,8 +7,8 @@
   },
   "scripts": {
     "test": "npm run mochaTest",
-    "mochaTest": "mocha",
-    "watch": "nodemon --exec 'mocha' --watch index.js --watch test --ext js",
+    "mochaTest": "mocha --slow 350",
+    "watch": "npm run mochaTest -- --watch",
     "lint": "eslint **/*.js --quiet",
     "pretest": "npm run lint"
   },
@@ -17,7 +17,6 @@
     "eslint": "2.2.0",
     "expect": "1.15.2",
     "mocha": "2.4.5",
-    "nodemon": "1.9.1",
     "shelljs": "0.6.0",
     "underscore": "1.8.3",
     "yargs": "4.2.0"

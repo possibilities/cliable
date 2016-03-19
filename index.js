@@ -43,15 +43,29 @@ const buildCommandLineInterface = (spec, yargsInstance) => {
   }
 
   // Calculate usage string based on spec and pass through
+  // Always show the name of the binary first in the usage message
+  var usage = '$0'
   if (spec.commands) {
+    // If there are `commands` in play show `<command>` after the binary name
+    // to signify that a command is required
+    usage += ' <command>'
+
+    // If there are any options in play show `[options]` after `<command>`
+    // to signify that they are optional and should be supplied after the
+    // command
     if (hasAnyCommandOptions(spec.commands)) {
-      yargsInstance.usage('$0 <command> [options]')
-    } else {
-      yargsInstance.usage('$0 <command>')
+      usage += ' [options]'
     }
+
   } else {
-    yargsInstance.usage('$0 [options]')
+    // If there are no commands in play show `[options]` after the binary name
+    // to signify that they are optional and should be supplied after the
+    // command.
+    usage += ' [options]'
   }
+
+  // Give args the built up usage string
+  yargsInstance.usage(usage)
 
   // Build commands
   _.each(spec.commands, (commandSpec, commandName) => {
