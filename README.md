@@ -96,6 +96,14 @@ TODO `dependencyResolvers` _type: object, optional_
 
 ### TODO `ArgumentSpec`
 
+`name` _type: string, required_
+
+  The name of the argument, appears in usage and help messages.
+
+`required` _type: boolean, optional_
+
+  Indicate if the argument is required to run the underlying command.
+
 ### TODO `SideEffectSpec`
 
 `type` _type: string, required_
