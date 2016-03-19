@@ -86,13 +86,15 @@ _Passed through to [`yargs#command`](https://github.com/yargs/yargs#commandcmd-d
 
   A list of functions should be run by the command. The functions are expected to return a list of lightweight side effect objects that are processed by one the `sideEffectProcessors`. See [SideEffect](#sideeffect).
 
-`requiredArgs` _type: Array[string], optional_
+`arguments` _type: Array[object], optional_
 
-  A list of additional required arguments. This can be used if your command can have commands of their own or for accepting additional input.
+  A list of command arguments. This can be used if your command can accept sub arguments (e.g. `foo.txt` in `foo-app foo-command foo.txt --bar 42`). Each item is an `ArgumentSpec`.
 
 TODO `dependencyResolvers` _type: object, optional_
 
   An object where the keys are resolve names and values are functions that know how to obtain the required data.
+
+### TODO `ArgumentSpec`
 
 ### TODO `SideEffect`
 
