@@ -8,7 +8,7 @@ _NOT USABLE YET_
 
 There's nothing particularly difficult about writing CLI applications but it can be hard to write them in a modular and testable way. The mental model for Cliable applications is a 3 stage pipeline:
 
-1. **Input** flows in:
+1. **Input** flows in, e.g.:
     - CLI flags
     - environment variables
     - config file values
@@ -17,7 +17,7 @@ There's nothing particularly difficult about writing CLI applications but it can
 
 1. Input is **process**ed by one or more composed pure functions
 
-1. One or more **side effect** happens
+1. One or more **side effect** happens, e.g.:
 
     - a file is written or uploaded
     - a kitten is rescued
