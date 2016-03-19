@@ -7,7 +7,7 @@ const path = require('path')
 const expect = require('expect')
 
 const examplesRoot = path.join(__dirname, 'examples')
-const exampleNames = readdirSync(examplesRoot)
+const exampleNames = readdirSync(examplesRoot).filter((f) => f.split('.').length === 1)
 
 const dasherizeToSentence = (str) => {
   return str.slice(0, 1).toUpperCase() + str.slice(1).replace(/-/g, ' ')
@@ -15,27 +15,28 @@ const dasherizeToSentence = (str) => {
 
 exampleNames.forEach((exampleName) => {
   const examplePath = path.join(examplesRoot, exampleName)
-  const testPath = path.join(examplePath, 'test.js')
-  const tests = require(testPath)
-  const options = { cwd: examplePath, silent: true }
+  const examples = require(examplePath + '.js')
+  const execOptions = { cwd: examplesRoot, silent: true }
 
   describe(dasherizeToSentence(exampleName), () => {
 
-    tests.forEach((test) => {
+    examples.forEach((example) => {
+      const exampleArguments = example.arguments || ['']
 
-      const commands = test.commands ? test.commands : [test.command]
+      describe(example.description, () => {
 
-      commands.forEach((command) => {
+        exampleArguments.forEach((argument) => {
 
-        // slice the name to clean it up a lil'
-        it(`${test.description} (${command.slice(2)})`, () => {
+          it(`./${exampleName} ${argument}`, () => {
 
-          const result = exec(command, options)
+            const result = exec('./' + exampleName + ' ' + argument, execOptions)
 
-          const output = result.stdout.trim() + result.stderr.trim()
+            const actualOutput = result.stdout.trim() + result.stderr.trim()
+            const expectedOutput = example.output.trim().replace('COMMAND', exampleName)
 
-          expect(output).toEqual(test.output.trim())
-          expect(test.code).toEqual(result.code)
+            expect(expectedOutput).toEqual(actualOutput)
+            expect(example.code).toEqual(result.code)
+          })
         })
       })
     })
