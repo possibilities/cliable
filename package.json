@@ -1,7 +1,7 @@
 {
   "name": "cliable",
   "version": "0.1.0",
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "npm run mochaTest",
     "mochaTest": "mocha --compilers js:babel-register --timeout 20000 --slow 350",
