@@ -50,21 +50,23 @@ TODO `sideEffectProcessors` _type: object, optional_
 
 ### `CommandSpec`
 
-`name` _type: string, required_
-
-  The name of the command and any positional arguments. Passed through to [`yargs#command`](https://github.com/yargs/yargs#commandcmd-desc-builder-handler).
+_Passed through to [`yargs#command`](https://github.com/yargs/yargs#commandcmd-desc-builder-handler) unless otherwise noted_
 
 `description` _type: string, optional_
 
-  A description of the command used when showing help text. Passed through to [`yargs#command`](https://github.com/yargs/yargs#commandcmd-desc-builder-handler).
+  A description of the command used when showing help text
 
 `options` _type: object, optional_
 
-  An object describing the command command's options. Passed through to [`yargs#command`](https://github.com/yargs/yargs#commandcmd-desc-builder-handler).
+  An object describing the command command's options.
 
 `handler` _type: array[function], required_
 
   A list of functions should be run by the command. The functions are expected to return a list of lightweight side effect objects that are processed by one the `sideEffectProcessors`. See [SideEffect](#sideeffect).
+
+`requiredArgs` _type: Array[string], optional_
+
+  A list of additional required arguments. This can be used if your command can have commands of their own or for accepting additional input.
 
 TODO `dependencyResolvers` _type: object, optional_
 
