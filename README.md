@@ -80,7 +80,7 @@ _Passed through to [`yargs#command`](https://github.com/yargs/yargs#commandcmd-d
 
 `options` _type: object, optional_
 
-  An object describing the command command's options.
+  An object describing any option that the user can enter via CLI arguments (e.g. `--foo bar`) and/or config file and/or environment variables.
 
 `handler` _type: array[function], required_
 
