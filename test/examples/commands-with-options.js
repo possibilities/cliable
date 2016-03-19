@@ -11,7 +11,7 @@ module.exports = [
     arguments: ['command-foo'],
     code: 1,
     output: `
-COMMAND command-foo
+EXAMPLE_NAME command-foo
 
 Options:
   --help, -h     Show help  [boolean]
@@ -27,7 +27,7 @@ Missing required argument: foo
     arguments: ['--help', '-h'],
     code: 0,
     output: `
-COMMAND <command> [options]
+EXAMPLE_NAME <command> [options]
 
 Commands:
   command-foo  A foo command

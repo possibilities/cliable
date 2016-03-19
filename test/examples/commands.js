@@ -18,7 +18,7 @@ module.exports = [
     arguments: ['--help', '-h'],
     code: 0,
     output: `
-COMMAND <command> [options]
+EXAMPLE_NAME <command> [options]
 
 Commands:
   command-foo  A foo command
@@ -35,7 +35,7 @@ Options:
     arguments: ['fuffy'],
     code: 1,
     output: `
-COMMAND <command> [options]
+EXAMPLE_NAME <command> [options]
 
 Commands:
   command-foo  A foo command

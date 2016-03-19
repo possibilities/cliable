@@ -5,7 +5,7 @@ module.exports = [
     description: 'Running default command without required option',
     code: 1,
     output: `
-COMMAND [options]
+EXAMPLE_NAME [options]
 
 Options:
   --help, -h     Show help  [boolean]
@@ -24,7 +24,7 @@ Missing required argument: foo
     ],
     code: 0,
     output: `
-COMMAND [options]
+EXAMPLE_NAME [options]
 
 Options:
   --help, -h     Show help  [boolean]

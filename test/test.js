@@ -32,7 +32,7 @@ exampleNames.forEach((exampleName) => {
             const result = exec('./' + exampleName + ' ' + argument, execOptions)
 
             const actualOutput = result.stdout.trim() + result.stderr.trim()
-            const expectedOutput = example.output.trim().replace('COMMAND', exampleName)
+            const expectedOutput = example.output.trim().replace('EXAMPLE_NAME', exampleName)
 
             expect(expectedOutput).toEqual(actualOutput)
             expect(example.code).toEqual(result.code)

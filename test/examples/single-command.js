@@ -10,7 +10,7 @@ module.exports = [
     arguments: ['--help', '-h'],
     code: 0,
     output: `
-COMMAND [options]
+EXAMPLE_NAME [options]
 
 Options:
   --help, -h     Show help  [boolean]
